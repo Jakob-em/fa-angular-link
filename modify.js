@@ -1,7 +1,7 @@
 window.addEventListener('load', main, false);
 
-function buildElement(name) {
-  return `<fa-icon icon="${name}"></fa-icon>`;
+function buildElement(style, name) {
+  return `<fa-icon icon="['${style}', '${name}']"></fa-icon>`;
 }
 
 function removeBounceAfterFinish(el) {
@@ -11,9 +11,10 @@ function removeBounceAfterFinish(el) {
 }
 
 function main(evt) {
-  itemWrapper = document.querySelector(
+  let itemWrapper = document.querySelector(
     'header > .bn.bb-l.bw2.b--gray1 > ul:first-child'
   );
+  let styleElement = itemWrapper.querySelector('.f2');
   let nameElement = document.querySelector('h1 > span');
   let dividerIcon = document
     .querySelector('header > .bn.bb-l.bw2.b--gray1  .order-7-l')
@@ -35,7 +36,7 @@ function main(evt) {
   angularIcon.onclick = () => {
     angularIcon.classList.add('bounceIn');
 
-    let generatedElement = buildElement(nameElement.textContent);
+    let generatedElement = buildElement(styleElement.textContent, nameElement.textContent);
 
     navigator.clipboard
       .writeText(generatedElement)
