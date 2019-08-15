@@ -1,7 +1,7 @@
 window.addEventListener('load', main, false);
 
 function buildElement(style, name) {
-  return `<fa-icon icon="['${style}', '${name}']"></fa-icon>`;
+  return `<fa-icon [icon]="['${style}', '${name}']"></fa-icon>`;
 }
 
 function removeBounceAfterFinish(el) {
